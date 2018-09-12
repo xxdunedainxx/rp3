@@ -1,3 +1,12 @@
+HERE TO TRACK PACKAGE DEPENDENCIES ::
+
+== JAVASCRIPT ==
+
+== CSS ==
+
+== PYTHON == 
+pymysql
+
 TODOs::
 
 Zach --
@@ -10,3 +19,4 @@ Zach --
 Andrew --
 
 - UI Mock up and initial client structure
+

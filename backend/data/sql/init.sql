@@ -50,5 +50,5 @@ CREATE TABLE settings(
 
 CREATE TABLE playlist(
 	name varchar(333),
-	songs TEXT, 
+	songs TEXT, # maybe json of songs / artists objects ? 
 )ENGINE=MyISAM;
