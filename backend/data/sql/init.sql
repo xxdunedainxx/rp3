@@ -5,15 +5,16 @@ CREATE database rp3;
 use rp3;
 
 CREATE TABLE song (
-	name varchar(666),
+	name varchar(333),
 	artist varchar(333),
 	album varchar(333),
 	isFavorite int(100) DEFAULT 0,
 	file_path TEXT,
 	song_length int(100),
 	when_upload DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	plays int(333),
-	PRIMARY KEY(name)
+	plays int(255),
+	song_id int NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY(song_id)
 )ENGINE=MyISAM;
 
 
@@ -26,7 +27,9 @@ CREATE TABLE album (
 	album_length int(100),
 	when_upload DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	songs_on_album int(100),
-	PRIMARY KEY(name)
+	album_id int NOT NULL AUTO_INCREMENT,
+	album_cover_path varchar(333),
+	PRIMARY KEY(album_id)
 )ENGINE=MyISAM;
 
 
@@ -36,7 +39,7 @@ CREATE TABLE artist (
 	isFavorite int(100) DEFAULT 0,
 	numb_of_albums varchar(333),
 	numb_of_songs varchar(333),
-	view_time int(666),
+	view_time int(255),
 	when_upload DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(name)
 )ENGINE=MyISAM;
