@@ -1,0 +1,121 @@
+{
+  "_comments": {
+    "overview" : "Here you can modify core configs of the UC Automation. Things like logging, token location, display name of the bot etc...",
+    "python_version" : "READ ONLY: This is the required python version for the automation",
+    "library_requirements" : "READ ONLY: required python packages to install ",
+    "logging" : "Modify where logs go, and the log level. Most verbose log level is ALL",
+    "submodules" : "physical path to local submodules, which must be imported for the automation to work properly"
+  },
+  "python_version" : "3.6.2",
+  "library_requirements" :[
+    "requests",
+    "flask",
+    "flask_cors",
+    "flask_restplus",
+    "jwt",
+    "pymysql",
+    "ldap3"
+  ],
+  "logging" : {
+    "core_logging_file" : ".\\log\\main.log",
+    "core_logging_level" : "ALL"
+  },
+  "submodules" : [
+  ],
+  "services" : {
+    "root_namespace" : "backend.webserver.src.",
+    "default_service_config" : {
+        "log_file" : "\\log\\dump.log",
+         "log_level" : "ALL",
+         "logging_enabled" : true,
+         "svc_name" : "Service Name placeholder",
+         "svc_description" : "Service description placeholder",
+         "svc_namespace" : "dot.walk.to.service.place.holder",
+         "authors" : ["zach.mcfadden"],
+         "last_update" : "UNKNOWN",
+         "swagger" : {
+            "method_docs" : {
+                "get" : {
+                    "200" : "Success","401" : "Unauthorized","409" : "already exists", "404" : "not found", "500" : "Internal Server Error"
+                },
+                "post": {
+                     "200" : "Success","401" : "Unauthorized","409" : "already exists", "404" : "not found", "500" : "Internal Server Error"
+                },
+                "patch": {
+                     "200" : "Success","401" : "Unauthorized","409" : "already exists", "404" : "not found", "500" : "Internal Server Error"
+                },
+                "delete": {
+                    "200" : "Success","401" : "Unauthorized","409" : "already exists", "404" : "not found", "500" : "Internal Server Error"
+                }
+             },
+            "_supported_api_responses" :[200,401,409,500]
+         }
+    },
+    "BuildAPI" : {
+      "default_config_override" : null,
+      "configs" :
+        {
+            "debug" : true,
+            "env" : "dev",
+            "version" : "3.0",
+            "description" : "AUTOMATION",
+            "title" : "BT Network Automation Tool",
+            "cors" : true,
+            "cors_creds" : true,
+            "cors_resource_setting" : {
+              "/api/v3/*" : {
+                "origins" : "*"
+              }
+          }
+        },
+      "location" : null
+
+    },
+    "apis" : [
+      {
+        "default_config_override": null,
+        "name" : "BasicAPI",
+        "module" : "..core.service.api.basicTestAPI.basicAPI",
+        "services" : ["Authenticator"],
+        "enabled" : true,
+        "configs": [
+          {
+            "_type" : "Router",
+            "default_config_override" : null,
+            "configs" : {
+                "core_route" : "api/v1",
+                "api_specific_resource" : "ping",
+                "api_specific_routes" : {
+                  "get" : "getBasic"
+                },
+                "supported_methods" : ["get"]
+            },
+            "location" : null
+          },
+          {
+            "_type" : "api",
+            "default_config_override" : null,
+            "configs" : {
+                "api_namespace_name" : "Basic Testing API",
+                "api_namespace_description" : "None",
+                "resource_name" : ""
+            },
+            "location" : null
+
+          }
+        ]
+      }
+    ],
+    "core" : [
+    ],
+    "jobs" : [
+
+    ],
+    "security" : {
+      "session_exp_days" : 7,
+      "session_exp_seconds" : 0,
+      "jwt_algorithm" : "HS256",
+      "secret_keys_length" : 15
+    }
+  }
+}

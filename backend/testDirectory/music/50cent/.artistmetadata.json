@@ -1,0 +1,22 @@
+{
+  "name" : "",
+  "totalArtistPlays" : 50,
+
+  "musicMetaData" : {
+    "albums" : [
+      {
+        "name" : "",
+        "songs" : [
+          {
+            "name" : "song1",
+            "totalPlays" : 0,
+            "favorited" : false,
+            "fullPathToSong" : ""
+          }
+        ],
+        "albumTotalPlays" : 0
+      }
+    ]
+  },
+  "tags" : ["rap", "hiphop"]
+}
